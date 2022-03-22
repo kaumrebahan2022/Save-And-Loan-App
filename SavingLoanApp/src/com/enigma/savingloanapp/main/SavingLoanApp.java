@@ -33,6 +33,11 @@ public class SavingLoanApp {
         data[1][2] = "0";
         data[1][3] = "30000";
 
+        data[1][0] = "Data@3";
+        data[1][1] = "Mochammad Ridwan";
+        data[1][2] = "0";
+        data[1][3] = "40000";
+
         findAllSavingLoan();
     }
 
