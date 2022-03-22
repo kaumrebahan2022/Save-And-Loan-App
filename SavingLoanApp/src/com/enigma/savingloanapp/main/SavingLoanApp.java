@@ -76,7 +76,7 @@ public class SavingLoanApp {
         data[1][3] = "30000";
         findAllSavingLoan();
 
-        removeLoan();
+//        removeLoan();
         findAllSavingLoan();
     }
 
@@ -130,7 +130,7 @@ public class SavingLoanApp {
         data[1][3] = "30000";
         findAllSavingLoan();
 
-        removeLoan();
+//        removeLoan();
         findAllSavingLoan();
     }
 
@@ -153,7 +153,24 @@ public class SavingLoanApp {
      * -fourth menu -> remove data loan
      */
     public static void viewMainMenuSavingLoan(){
+        while (true){
+            findAllSavingLoan();
 
+            System.out.println("===============================");
+            System.out.println("MAIN MENU");
+            System.out.println("===============================");
+            System.out.println("1. ADD SAVING DATA");
+            System.out.println("2. REMOVE SAVING DATA");
+            System.out.println("3. ADD LOAN DATA");
+            System.out.println("4. REMOVE LOAN DATA");
+            System.out.println("X. (QUIT)");
+            String insert = input("INSERT OPTION");
+            if (insert.equals("1")) addSaving();
+            if (insert.equals("2")) removeSaving();
+            if (insert.equals("3")) addLoan();
+//            if (insert.equals("4")) removeLoan();
+            else break;
+        }
     }
 
     /**
