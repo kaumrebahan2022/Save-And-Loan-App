@@ -16,13 +16,6 @@ public class SavingLoanApp {
      * this method using array 2 dimension
      */
     public static void findAllSavingLoan(){
-        System.out.println("========================");
-        System.out.println("LIST DATA CUSTOMER");
-        System.out.println("========================\n");
-
-        System.out.print("|  ID   |       Name      | Savings |  Debt  |\n");
-
-
         int col = data[0].length;
         int row = data.length;
 
@@ -186,12 +179,17 @@ public class SavingLoanApp {
      * -fourth menu -> remove data loan
      */
     public static void viewMainMenuSavingLoan(){
-        testFindAllSavingLoan();
-
         while (true){
-            System.out.println("===============================");
-            System.out.println("MAIN MENU FOR SAVING LOAN APP");
-            System.out.println("===============================");
+            System.out.println("==============================================");
+            System.out.println("\t\t\tLIST DATA CUSTOMER");
+            System.out.println("==============================================");
+            System.out.println("|  ID   |       Name      | Savings |  Debt  |");
+
+            testFindAllSavingLoan();
+
+            System.out.println("==============================================");
+            System.out.println("\t\tMAIN MENU FOR SAVING LOAN APP");
+            System.out.println("==============================================");
             System.out.println("1. ADD SAVING CUSTOMER");
             System.out.println("2. REMOVE SAVING CUSTOMER");
             System.out.println("3. ADD LOAN CUSTOMER");
