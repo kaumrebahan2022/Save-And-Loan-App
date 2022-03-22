@@ -16,7 +16,40 @@ public class SavingLoanApp {
      * this method using array 2 dimension
      */
     public static void findAllSavingLoan(){
+        System.out.println("========================");
+        System.out.println("LIST DATA CUSTOMER");
+        System.out.println("========================\n");
 
+        System.out.print("|  ID   |       Name      | Savings |  Debt  |\n");
+
+
+        int col = data[0].length;
+        int row = data.length;
+
+        int maxWidth[] = new int[col];
+        boolean hashNull = false;
+
+        for(String[] rowD : data){
+            for (int i = 0; i < col; i++) {
+                if(rowD[i] != null) {
+                    if (maxWidth[i] < rowD[i].length())
+                        maxWidth[i] = rowD[i].length();
+                } else if(rowD[i] == null) {
+                    rowD[i] = "";
+                }
+            }
+        }
+
+        String format = "";
+
+        for(int x: maxWidth)
+            format += "%-" + (x + 2) + "s ";
+
+        format += "%n";
+
+        for(String[] rowD : data){
+            System.out.printf(format,rowD);
+        }
     }
 
     /**
@@ -76,7 +109,7 @@ public class SavingLoanApp {
         data[1][3] = "30000";
         findAllSavingLoan();
 
-        removeLoan();
+        removeLoan("test");
         findAllSavingLoan();
     }
 
@@ -130,7 +163,7 @@ public class SavingLoanApp {
         data[1][3] = "30000";
         findAllSavingLoan();
 
-        removeLoan();
+        removeLoan("test");
         findAllSavingLoan();
     }
 
@@ -153,7 +186,24 @@ public class SavingLoanApp {
      * -fourth menu -> remove data loan
      */
     public static void viewMainMenuSavingLoan(){
+        testFindAllSavingLoan();
 
+        while (true){
+            System.out.println("===============================");
+            System.out.println("MAIN MENU FOR SAVING LOAN APP");
+            System.out.println("===============================");
+            System.out.println("1. ADD SAVING CUSTOMER");
+            System.out.println("2. REMOVE SAVING CUSTOMER");
+            System.out.println("3. ADD LOAN CUSTOMER");
+            System.out.println("4. REMOVE LOAN CUSTOMER");
+            System.out.println("5. (QUIT PROGRAM)");
+            String option = input("ENTER OPTION");
+            if (option.equals("1")) addSaving();
+            if (option.equals("2")) removeSaving();
+            if (option.equals("3")) addLoan();
+            if (option.equals("4")) removeLoan("test");
+            else break;
+        }
     }
 
     /**
