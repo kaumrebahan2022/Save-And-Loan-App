@@ -8,7 +8,7 @@ public class SavingLoanApp {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        viewMainMenuSavingLoan();
+        testViewMainMenuSavingLoan();
     }
 
     /**
@@ -16,32 +16,13 @@ public class SavingLoanApp {
      * this method using array 2 dimension
      */
     public static void findAllSavingLoan(){
-        int col = data[0].length;
-        int row = data.length;
-
-        int maxWidth[] = new int[col];
-        boolean hashNull = false;
-
-        for(String[] rowD : data){
-            for (int i = 0; i < col; i++) {
-                if(rowD[i] != null) {
-                    if (maxWidth[i] < rowD[i].length())
-                        maxWidth[i] = rowD[i].length();
-                } else if(rowD[i] == null) {
-                    rowD[i] = "";
+        for (int i = 0; i < data.length; i++){
+            if (data[i][0] != null){
+                for (int j = 0; j < data[i].length; j++){
+                    if (data[i][j] != null) System.out.print(data[i][j]);
                 }
-            }
-        }
-
-        String format = "";
-
-        for(int x: maxWidth)
-            format += "%-" + (x + 2) + "s ";
-
-        format += "%n";
-
-        for(String[] rowD : data){
-            System.out.printf(format,rowD);
+            }else break;
+            System.out.println();
         }
     }
 
@@ -185,7 +166,7 @@ public class SavingLoanApp {
             System.out.println("==============================================");
             System.out.println("|  ID   |       Name      | Savings |  Debt  |");
 
-            testFindAllSavingLoan();
+            findAllSavingLoan();
 
             System.out.println("==============================================");
             System.out.println("\t\tMAIN MENU FOR SAVING LOAN APP");
