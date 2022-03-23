@@ -8,7 +8,7 @@ public class SavingLoanApp {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        viewMainMenuSavingLoan();
+        testaddSaving();
     }
 
     /**
@@ -46,15 +46,42 @@ public class SavingLoanApp {
      * the logic method is always reduce saving data if they have loan data from array
      * until they don't have anymore loan data
      */
-    public static void addSaving(){
+    public static void addSaving(String id, String name, String saving, String loan){
+        //cek apakah data lenght penuh ?
+        boolean isFull = true;
+        for (int i = 0; i < data.length; i++){
+            if (data[i][0] == null) isFull = false; break;
+        }
 
+        //jika data lenght penuh
+        if (isFull){
+            String[][] temp = data;
+            data = new String[data.length * 2][3];
+
+            for (int i = 0; i < temp.length; i++){
+                for (int j = 0; j < temp[i].length; j++){
+                    data[i][j] = temp[i][j];
+                }
+            }
+        }
+
+        //menambahkan data ke posisi array yang NULL
+        for (int i = 0; i < data.length; i++){
+            if (data[i][0] == null){
+                data[i][0] = id;
+                data[i][1] = name;
+                data[i][2] = saving;
+                data[i][3] = loan;
+                break;
+            }
+        }
     }
 
     /**
      * @Unit Test for addSaving method
      */
     public static void testaddSaving(){
-        addSaving();
+        addSaving("Data@1","Gunawan","500000","0");
         findAllSavingLoan();
     }
 
@@ -81,7 +108,7 @@ public class SavingLoanApp {
         data[1][3] = "30000";
         findAllSavingLoan();
 
-        removeLoan();
+//        removeLoan();
         findAllSavingLoan();
     }
 
@@ -135,7 +162,7 @@ public class SavingLoanApp {
         data[1][3] = "30000";
         findAllSavingLoan();
 
-        removeLoan();
+//        removeLoan();
         findAllSavingLoan();
     }
 
